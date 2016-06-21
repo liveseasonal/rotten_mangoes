@@ -15,11 +15,23 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
-  def create
+  # def create
+  #       @movie = Movie.new(movie_params)
+
+  #       if @movie.save
+  #         redirect_to movies_path
+  #       else
+  #         render :new
+  #       end
+  #     end
+
+#added code from flash
+
+   def create
         @movie = Movie.new(movie_params)
 
         if @movie.save
-          redirect_to movies_path
+          redirect_to movies_path, notice: "#{@movie.title} was submitted successfully!"
         else
           render :new
         end

@@ -49,5 +49,5 @@ class MoviesController < ApplicationController
         )
       end
 
-    end
+    
 end

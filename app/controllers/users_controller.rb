@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   #whats initilaly generated
 
-  # def new
-  # end
+  # before_action :restrict_non_admins
 
-  # def create
+  # def index
+  #   @users = User.order(:lastname).page(params[:page])
   # end
 
   def new

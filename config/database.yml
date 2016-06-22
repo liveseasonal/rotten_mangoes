@@ -20,6 +20,18 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-production:
-  <<: *default
-  database: db/production.sqlite3
+# development:
+#   adapter: postgresql
+#   database: rotten_mangoes_development
+#   host: localhost
+#   encoding: unicode
+# ​
+# test:
+#   adapter: postgresql
+#   database: rotten_mangoes_test
+#   host: localhost
+#   encoding: unicode
+
+# production:
+#   <<: *default
+#   database: db/production.sqlite3

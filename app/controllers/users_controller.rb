@@ -3,9 +3,9 @@ class UsersController < ApplicationController
 
   # before_action :restrict_non_admins
 
-  # def index
-  #   @users = User.order(:lastname).page(params[:page])
-  # end
+  def index
+    @users = User.order(:lastname).page(params[:page]).per(10)
+  end
 
   def new
     @user = User.new

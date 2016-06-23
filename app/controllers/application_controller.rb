@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def restrict_non_admins
-    unless current_user.is_a? Admin
+    unless current_user.admin 
       flash[:alert] = "Access restricted"
       redirect_to root_path
     end
@@ -25,9 +25,10 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def admin_user
-    @admin_user ||= User.find(session[:admin_user_id]) if session[:admin_user_id]
+  def admin
+    # @admin_user ||= User.find(session[:admin_user_id]) if session[:admin_user_id]
+    @admin ||= User.find(session[:admin_id]) if session[:admin_id]
   end
 
-  helper_method :current_user, :admin_user
+  helper_method :current_user, :admin
 end

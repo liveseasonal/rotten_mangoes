@@ -3,21 +3,30 @@ class SessionsController < ApplicationController
   def new
   end
 
-   def create
-    user = User.find_by(email: params[:email])
+  def create
+    user = User.find_by(email: params[:email]) 
 
     if user && user.authenticate(params[:password])
+      # user.password.......
       session[:user_id] = user.id
-      redirect_to movies_path, notice: "Welcome back, #{user.firstname}!"
+
+      if user.admin
+        
+        redirect_to admin_users_path, notice: "Admin!!!!!!!!!!!!!!!!"
+      else
+        redirect_to movies_path, notice: "Welcome back, #{user.firstname}!"
+      end
+      
     else
       flash.now[:alert] = "Log in failed..."
       render :new
     end
-   end 
+  end
 
-    def destroy
-      session[:user_id] = nil
-      redirect_to movies_path, notice: "Adios!"
-    end
+  def destroy
+    session[:user_id] = nil
+    redirect_to movies_path, notice: "Bye bye!"
+  end
+
    
 end

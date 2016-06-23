@@ -15,19 +15,19 @@
     </div>
   <% end %>  
 
-      <div class="field">
+      <div>
         <%= f.label :title %><br>
         <%= f.text_field :title %>
       </div>
-      <div class="field">
+      <div>
         <%= f.label :release_date %><br>
         <%= f.date_field :release_date %>
       </div>
-      <div class="field">
+      <div>
         <%= f.label :director %><br>
         <%= f.text_field :director %>
       </div>
-      <div class="field">
+      <div>
         <%= f.label :runtime_in_minutes %><br>
         <%= f.number_field :runtime_in_minutes %>
       </div>
@@ -36,17 +36,17 @@
         <%= f.text_field :poster_image_url %>
       </div> -->
 
-      <div class="field">
+      <div>
         <%= f.label :description %><br>
         <%= f.text_area :description %>
       </div>
 
-      <div class="field">
+      <div>
         <%= f.label :poster_image_url %><br>
         <%= f.file_field :poster_image_url %>
       </div>    
 
-      <div class="actions">
+      <div>
         <%= f.submit "Submit" %> 
       </div>
 <% end %>

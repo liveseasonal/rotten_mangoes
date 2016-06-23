@@ -1,0 +1,27 @@
+
+<h1> I am admin/users/index.html.erb</h1>
+
+<h2>Admin Panel</h2>
+<h3><%= link_to "Create user", new_admin_user_path %></h3>
+<p>List of users below</p>
+<br>
+<table>
+  <tr>
+    <th>Last Name</th>
+    <th>First Name</th>
+    <th>Email</th>
+    <th>Create At</th>
+    <th>Impersonate</th>
+  </tr>
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= link_to user.email, edit_admin_user_path(user) %></td>
+    <td><%= user.lastname %> </td>
+    <td><%= user.firstname %></td>
+    <td><%= user.created_at %></td>
+    <td><%= link_to "Log in as this user", admin_session_path(user.id), method: :create %></td>
+  </tr>
+  <% end %>
+</table>  
+<hr> 
+<%= paginate @users %>

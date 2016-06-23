@@ -24,6 +24,8 @@ class Movie < ActiveRecord::Base
 
       validate :release_date_is_in_the_past
 
+      paginates_per 10
+
 
 
       def review_average

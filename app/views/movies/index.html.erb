@@ -1,6 +1,18 @@
  <h1> I am app/movies/index/html.erb</h1> 
 
+<form method="get" action="/movies">
+      <!-- <input type="text" name="title">/>
+      <input type="text" name="director"> /> -->
+      <select name="runtime_in_minutes" placeholder="Runtime"><p>
+        <option value="" disabled selected>Runtime</option>
+        <option value="under_90">Under 90 minutes</option>
+        <option value="between_120_and_90">Between 90 and 120 minutes</option>
+        <option value="over_120">Over 120 minutes</option>
+      </select>
 
+      <button id="create-event-button" type="submit" value ="submit" >Search</button>
+
+</form>  
 
  <h1>Rotten Mangoes</h1>
     <%= link_to "Submit a movie!", new_movie_path %>

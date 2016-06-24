@@ -7,18 +7,7 @@ class Admin::UsersController < ApplicationController
 
   def index
     @users = User.order(:lastname).page(params[:page]).per(10)
-    # redirect_to admin_users_path
-    # if session[:admin_id]
-    #   session[:user_id] = session[:admin_id]
-    #   session[:admin_id] = nil
-    # end
-    # @admin = User.find(session[:user_id])
-    # @users = User.all.page(params[:page]).per(10)
   end
-
-  # def show
-  #   @user = User.find(params[:id])
-  # end
 
   def new
     @user = User.new
@@ -37,6 +26,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
+    # byebug
     @user = User.find(params[:id])
   end
 

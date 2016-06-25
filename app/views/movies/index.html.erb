@@ -1,34 +1,43 @@
  <h1> I am app/movies/index/html.erb</h1> 
 
-<form method="get" action="/movies">
-      <!-- <input type="text" name="title">/>
-      <input type="text" name="director"> /> -->
-      <select name="runtime_in_minutes" placeholder="Runtime"><p>
-        <option value="" disabled selected>Runtime</option>
-        <option value="under_90">Under 90 minutes</option>
-        <option value="between_120_and_90">Between 90 and 120 minutes</option>
-        <option value="over_120">Over 120 minutes</option>
-      </select>
+<div class="well">
 
-      <button id="create-event-button" type="submit" value ="submit" >Search</button>
 
-</form>  
 
- <h1>Rotten Mangoes</h1>
-    <%= link_to "Submit a movie!", new_movie_path %>
-    <hr>
 
-    <% @movies.each do |movie| %>
-      <%= link_to image_tag(movie.poster_image_url.thumb), movie_path(movie) %>
-      <h2><%= link_to movie.title, movie_path(movie) %></h2>
-      <h3><%= movie.release_date %></h3>
-      <%= movie.review_average %>/10
-      
-      
-      <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-      <p><%= movie.description %></p>
-      <hr>
-    <% end %>
+    <form method="get" action="/movies">
+          <input type="text" name="title" placeholder="Movie Title">
+          <br>
+          <input type="text" name="director" placeholder="Director"> 
+          <br>
+          <select name="runtime_in_minutes" placeholder="Runtime"><p>
+            <option value="" disabled selected>Runtime</option>
+            <option value="under_90">Under 90 minutes</option>
+            <option value="between_120_and_90">Between 90 and 120 minutes</option>
+            <option value="over_120">Over 120 minutes</option>
+          </select>
+
+          <br>
+          <button id="create-event-button" type="submit" value ="submit" >Search</button>
+
+    </form>  
+
+     <h1>Rotten Mangoes</h1>
+        <%= link_to "Submit a movie!", new_movie_path %>
+        <hr>
+
+        <% @movies.each do |movie| %>
+          <%= link_to image_tag(movie.poster_image_url.thumb), movie_path(movie) %>
+          <h2><%= link_to movie.title, movie_path(movie) %></h2>
+          <h3><%= movie.release_date %></h3>
+          <%= movie.review_average %>/10
+          
+          
+          <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
+          <p><%= movie.description %></p>
+          <hr>
+        <% end %>
+</div> 
 
     
 

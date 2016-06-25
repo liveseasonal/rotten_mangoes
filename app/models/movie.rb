@@ -26,18 +26,41 @@ class Movie < ActiveRecord::Base
 
       paginates_per 10
 
+
+       # def self.search_by_title_and_director(title, director)
+       #  if filter[:title] || filter[:director]
+       #    binding.pry
+       #   movies = Movie.where('director == ?', filter[:director], 'title == ?', filter[:title]) 
+       #  end
+       #  movies
+       # end
       # search by runtime
 
-      def self.filter(filter)
-        if filter[:runtime_in_minutes]
-          movies = Movie.filter_by_runtime(filter[:runtime_in_minutes]) 
-        #   # movies = movies.where('director == ?', filter[:director])
+      def self.filter(params)
+
+        if params[:runtime_in_minutes]
+          # binding.pry
+          movies = Movie.filter_by_runtime(params[:runtime_in_minutes])
+        elsif params[:title]   
+          movies = Movie.where('title == ?', params[:title])
+        elsif params[:director]
+          movies = Movie.where('director == ?', params[:director])
+        
+          
+
+      
+              
+
+
+     
+          
+              
         #   # movies = Movie.all
         #   @events = @events.where(movie_genre: params[:movie_genre], cuisine: params[:cuisine])
         # movies
         else
           @movies = Movie.all
-        end  
+        end 
       end
 
       def self.filter_by_runtime(runtime) 

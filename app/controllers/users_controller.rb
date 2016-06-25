@@ -39,6 +39,7 @@ class UsersController < ApplicationController
 
         if @user.save
           session[:user_id] = @user.id
+          UserMailer.signup_confirmation(@user).deliver
           redirect_to movies_path, notice: "Welcome aboard, #{@user.firstname}!"
         else
           render :new

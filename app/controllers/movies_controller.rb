@@ -2,6 +2,8 @@ class MoviesController < ApplicationController
   
   def index
     @movies = Movie.filter(params)
+    # binding.pry
+    # puts "Hello"
   end
 
   def show
